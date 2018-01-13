@@ -1,3 +1,7 @@
-FROM httpd:alpine
-COPY ./public-html/ /usr/local/apache2/htdocs/
+FROM scratch
+COPY ./public-html /app/public-html
+COPY ./failover-serv /app/
+
+WORKDIR /app
+CMD ["./failover-serv"]
 
